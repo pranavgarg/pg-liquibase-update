@@ -1,10 +1,10 @@
-#!/bin/bash -e
+#!/bin/sh -e
 
 echo "Setting up liquidbase"
 : ${POSTGRES_USER?"POSTGRES_USER not set"}
 : ${POSTGRES_PASSWORD?"POSTGRES_PASSWORD not set"}
 
-cat <<CONF > /liquibase.properties
+cat <<CONF > /home/duser/liquibase.properties
   driver: org.postgresql.Driver
   classpath:/opt/jdbc_drivers/postgresql-9.3-1102-jdbc41.jar
   url: jdbc:postgresql://$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB

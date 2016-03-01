@@ -27,6 +27,7 @@ RUN ln -s /opt/liquibase/liquibase /usr/local/bin/
 
 # Add postgres driver
 ADD http://central.maven.org/maven2/org/postgresql/postgresql/9.3-1102-jdbc41/postgresql-9.3-1102-jdbc41.jar /opt/jdbc_drivers/postgresql-9.3-1102-jdbc41.jar
+RUN chmod 644 /opt/jdbc_drivers/postgresql-9.3-1102-jdbc41.jar
 
 # Add user
 RUN addgroup -S -g 433 duser && \
@@ -40,7 +41,7 @@ RUN chmod +x /scripts/update.sh
 
 VOLUME ["/changelogs"]
 
-WORKDIR /
+WORKDIR /home/duser
 
 USER duser
 
