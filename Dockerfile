@@ -1,6 +1,6 @@
 FROM beresfordt/alpine-java8
 
-MAINTAINER Tom Beresford
+MAINTAINER Pranav Garg
 
 # Create dirs
 RUN mkdir -p /opt/liquibase &&\
@@ -17,18 +17,18 @@ RUN addgroup -S -g 433 duser && \
   chown -R duser:duser /home/duser
 
 # Add liquibase
-ADD http://repo1.maven.org/maven2/org/liquibase/liquibase-core/3.3.0/liquibase-core-3.3.0-bin.tar.gz /opt/liquibase/liquibase-core-3.3.0-bin.tar.gz
+ADD http://repo1.maven.org/maven2/org/liquibase/liquibase-core/3.5.3/liquibase-core-3.5.3-bin.tar.gz /opt/liquibase/liquibase-core-3.5.3-bin.tar.gz
 WORKDIR /opt/liquibase
-RUN tar -xzf liquibase-core-3.3.0-bin.tar.gz &&\
-  rm liquibase-core-3.3.0-bin.tar.gz &&\
+RUN tar -xzf liquibase-core-3.5.3-bin.tar.gz &&\
+  rm liquibase-core-3.5.3-bin.tar.gz &&\
   chmod +x /opt/liquibase/liquibase &&\
   ln -s /opt/liquibase/liquibase /usr/local/bin/
 
 WORKDIR /
 
 # Add postgres driver
-ADD http://central.maven.org/maven2/org/postgresql/postgresql/9.3-1102-jdbc41/postgresql-9.3-1102-jdbc41.jar /opt/jdbc_drivers/postgresql-9.3-1102-jdbc41.jar
-RUN chmod 644 /opt/jdbc_drivers/postgresql-9.3-1102-jdbc41.jar
+ADD http://central.maven.org/maven2/org/postgresql/postgresql/9.4.1212.jre7/postgresql-9.4.1212.jre7.jar /opt/jdbc_drivers/postgresql-9.4.1212.jre7.jar
+RUN chmod 644 /opt/jdbc_drivers/postgresql-9.4.1212.jre7.jar
 
 # Add update script
 COPY update.sh /scripts/
