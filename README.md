@@ -3,7 +3,7 @@ pg-liquibase-update
 
 Docker image to execute a liquibase update
 
-The image uses liquibase 3.3.0 and postgres driver 9.3-1102-jdbc41
+The image uses liquibase 3.3.0 and postgres driver 42.2.14
 
 When run the container will execute a liquibase update of a specified changelog on a linked postgres container
 

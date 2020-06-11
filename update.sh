@@ -6,7 +6,7 @@ echo "Setting up liquidbase"
 
 cat <<CONF > /home/duser/liquibase.properties
   driver: org.postgresql.Driver
-  classpath:/opt/jdbc_drivers/postgresql-9.3-1102-jdbc41.jar
+  classpath:/opt/jdbc_drivers/postgresql-42.2.14.jar
   url: jdbc:postgresql://$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB
   username: $POSTGRES_USER
   password: $POSTGRES_PASSWORD
